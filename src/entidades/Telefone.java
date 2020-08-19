@@ -5,7 +5,7 @@ public abstract class Telefone {
 	private String discar;
 	private String checarAgenda;
 	private String tipo;
-	
+	//Contrutores
 	public Telefone() {
 		
 	}
@@ -22,7 +22,7 @@ public abstract class Telefone {
 	public abstract String discar(String discar);
 	public abstract void checarAgenda(String checarAgenda);
 	public abstract String tipo(String tipo);
-
+	//Get e Set 
 	public String getTipo() {
 		return tipo;
 	}

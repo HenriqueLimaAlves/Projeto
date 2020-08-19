@@ -109,7 +109,7 @@ public class Celular extends Telefone {
 		{
 		case 1:
 			soma = n1+n2;
-			System.out.printf("%nSoma de %.2f por %.2ff é igual a %.2f%n", n1, n2, soma);
+			System.out.printf("%nSoma de %.2f por %.2f é igual a %.2f%n", n1, n2, soma);
 			break;
 		case 2:
 			soma = n1-n2;

@@ -7,7 +7,7 @@ public class TelefoneFixo extends Telefone {
 	private int ligar;
 	Scanner ler = new Scanner(System.in);
 	ArrayList<String> contatos = new ArrayList<String>();
-
+	//Construtores
 	public TelefoneFixo() {
 
 	}
@@ -109,7 +109,7 @@ public class TelefoneFixo extends Telefone {
 					System.out.println("Opção invalida!!!");
 				}
 				if (op == 0) {
-					System.out.println("Celular bloqueado");
+					System.out.println("Telefone Desligado");
 					break;
 				}
 			}
