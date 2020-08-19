@@ -1,6 +1,6 @@
 package programa;
 
-import java.util.Scanner;
+import java.util.Scanner;//classe teste
 
 import entidades.Celular;
 
