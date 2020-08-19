@@ -4,27 +4,37 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Celular extends Telefone {
+	private int senha;
 
 	ArrayList<String> contatos = new ArrayList<String>();
 	Scanner ler = new Scanner(System.in);
-
+	//contrutores
 	public Celular() {
 
 	}
-
-	public Celular(String ligarTelefone, String discar, String checarAgenda, String tipo) {
+	public Celular(String ligarTelefone, String discar, 
+			String checarAgenda, String tipo, int senha) 
+	{
 		super(ligarTelefone, discar, checarAgenda, tipo);
+		this.senha = senha;
 	}
-
+	//get e set
+	public int getSenha() {
+		return senha;
+	}
+	public void setSenha(int senha) {
+		this.senha = senha;
+	}
+	//função desbloquear o celular
 	public String ligarTelefone(String ligarTelefone) {
-		int senha = 633;
-		if (senha != 633) {
+
+		if (this.senha != 633) {
 			return "Senha errada!";
 		} else {
 			return "Desbloqueado";
 		}
 	}
-
+	//função discar para um numero
 	public String discar(String discar) {
 		int contador = 0;
 		String numeroDiscado;
@@ -36,7 +46,7 @@ public class Celular extends Telefone {
 					contador++;
 				}
 			}
-
+			//contador para definir se o numero é valido
 			if (contador < 8 || contador > 9) {
 				System.out.println("Numero invalido!!!");
 				contador = 0;
@@ -46,15 +56,14 @@ public class Celular extends Telefone {
 		if (contador == 9 || contador == 8) {
 
 			System.out.println("Discando para o numero " + numeroDiscado);
-
 		}
 		return numeroDiscado;
 	}
-
+	//função para ver a agenda existente, e adicionar um contato
 	public void checarAgenda(String checarAgenda) {
-		int op=0;
+		int op = 0;
 		do {
-			System.out.printf("AGENDA%n1--Contatos Salvos%n2--Adicionar contato%3--Sair");
+			System.out.printf("%nAGENDA%n1--Contatos Salvos%n2--Adicionar contato%n3--Sair%n%n");
 			op = ler.nextInt();
 
 			switch (op) {
@@ -64,26 +73,37 @@ public class Celular extends Telefone {
 			case 2:
 				System.out.println("Digite o nome do contato que quer adicionar: ");
 				contatos.add(ler.nextLine());
+				
 			default:
+				if(op > 3) {
 				System.out.println("Opção invalida!!!");
+				}
 			}
 		} while (op != 3);
 	}
-
+	//função menu para selecionar os metodos
 	public void menu() {
-		System.out.printf("%nMENU%n0--Sair%n1--Fazer uma ligação%n2--Agenda%n");
+		System.out.printf("%nMENU%n0--Bloquear Celular%n1--Fazer uma ligação%n2--Agenda%n");
 		int op = ler.nextInt();
 		switch (op) {
 		case 1:
-
+			
+			discar(null);
+			break;
+		case 2:
+			checarAgenda(null);
+		default:
+			if (op != 0 && op >= 3) {
+				System.out.println("Opção invalida!!!");
+			}
+			if (op == 0) {
+				System.out.println("Celular bloqueado");
+				break;
+			}
 		}
-
-		ler.close();
 	}
 
-	@Override
 	public String tipo(String tipo) {
-		// TODO Auto-generated method stub
-		return null;
+		return "Celular";
 	}
 }
