@@ -40,7 +40,7 @@ public class Celular extends Telefone {
 		String numeroDiscado;
 		do {
 			System.out.println("Digite o numero desejado: ");
-			numeroDiscado = ler.nextLine();
+			numeroDiscado = ler.next();
 			for (int i = 0; i < numeroDiscado.length(); i++) {
 				if (numeroDiscado.charAt(i) != ' ') {
 					contador++;
@@ -72,8 +72,8 @@ public class Celular extends Telefone {
 				break;
 			case 2:
 				System.out.println("Digite o nome do contato que quer adicionar: ");
-				contatos.add(ler.nextLine());
-				
+				contatos.add(ler.next());
+				break;
 			default:
 				if(op > 3) {
 				System.out.println("Opção invalida!!!");
