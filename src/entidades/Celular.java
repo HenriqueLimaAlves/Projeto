@@ -71,7 +71,7 @@ public class Celular extends Telefone {
 		return numeroDiscado;
 	}
 
-	// função para ver a agenda existente, e adicionar um contato
+	// função para visualizar a agenda existente, e adicionar um contato
 	public void checarAgenda(String checarAgenda) {
 		int op = 0;
 		do {
@@ -93,27 +93,70 @@ public class Celular extends Telefone {
 			}
 		} while (op != 3);
 	}
-
-	// função menu para selecionar os metodos
-	public void menu() {
-		System.out.printf("%nMENU%n0--Bloquear Celular%n1--Fazer uma ligação%n2--Agenda%n");
-		int op = ler.nextInt();
-		switch (op) {
+	// função calculadora do celular
+	public void calculadora()
+	{
+		double soma=0;
+		int op=0;
+		double n1 = 0, n2=0;
+		System.out.printf("%nCalculadora%nDigite o Primeiro Numero:%n");
+		n1 = ler.nextInt();
+		System.out.println("Digite o segundo Numero");
+		n2 = ler.nextInt();
+		System.out.printf("%nDigite a operação%n1--Soma%n2--Subtração%n3--Multiplicação%n4--Divisão%n");
+		op = ler.nextInt();
+		switch(op)
+		{
 		case 1:
-
-			discar(null);
+			soma = n1+n2;
+			System.out.printf("%nSoma de %.2f por %.2ff é igual a %.2f%n", n1, n2, soma);
 			break;
 		case 2:
-			checarAgenda(null);
+			soma = n1-n2;
+			System.out.printf("%nSubtração de %.2f por %.2f é igual a %.2f%n", n1, n2, soma);
+			break;
+		case 3:
+			soma = n1*n2;
+			System.out.printf("%nMultiplicação de %.2f por %.2f é igual a %.2f%n", n1, n2, soma);
+			break;
+		case 4:
+			soma = n1/n2;
+			System.out.printf("%nDivisão de %.2f por %.2f é igual a %.2f%n", n1, n2, soma);
+			break;
 		default:
-			if (op != 0 && op >= 3) {
+			if (op>4)
+			{
 				System.out.println("Opção invalida!!!");
 			}
-			if (op == 0) {
-				System.out.println("Celular bloqueado");
-				break;
-			}
 		}
+	}
+	// função menu para selecionar os metodos
+	public void menu() {
+		int op;
+		do {
+			System.out.printf("%nMENU%n0--Bloquear Celular%n1--Fazer uma ligação%n2--Agenda%n3--Calculadora%n");
+			op = ler.nextInt();
+			switch (op) {
+			case 1:
+
+				discar(null);
+				break;
+			case 2:
+				checarAgenda(null);
+				break;
+			case 3:
+				calculadora();
+				break;
+			default:
+				if (op != 0 && op >= 4) {
+					System.out.println("Opção invalida!!!");
+				}
+				if (op == 0) {
+					System.out.println("Celular bloqueado");
+					break;
+				}
+			}
+		} while (op != 0);
 	}
 
 	public String tipo(String tipo) {

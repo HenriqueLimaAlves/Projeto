@@ -20,13 +20,13 @@ public class TelefoneMain {
 		} else if (opcaoAparelho == 2)// Inicialização do Telefone Celular
 		{
 			do {
-				System.out.println("Digite sua senha: ");
+				System.out.println("Digite sua senha: ");//Senha
 				cel.setSenha(ler.nextInt());
 				cel.ligarTelefone(null);
 
 				System.out.println(cel.ligarTelefone(null));
 			} while (cel.ligarTelefone(null) == "Senha errada!");
-			cel.menu();
+			cel.menu();//Função para inicializar o menu do celular
 		} else {
 			System.out.println("Opção Invalida!!!!");
 		}
